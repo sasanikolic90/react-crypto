@@ -1,12 +1,8 @@
 import update from 'immutability-helper';
 import appReducer from '../reducer';
-import data from '../data.json'
+import data from '../data.json';
 
-import {
-  loadRepos,
-  reposLoaded,
-  repoLoadingError,
-} from '../actions';
+import { loadRepos, reposLoaded, repoLoadingError } from '../actions';
 
 describe('appReducer', () => {
   let state;
@@ -18,7 +14,7 @@ describe('appReducer', () => {
       userData: {
         repositories: false,
       },
-      user: {answers: []},
+      user: { answers: [] },
       questions: data.questions,
       submitted: false,
     };
@@ -39,9 +35,11 @@ describe('appReducer', () => {
   });
 
   it('should handle the reposLoaded action correctly', () => {
-    const fixture = [{
-      name: 'My Repo',
-    }];
+    const fixture = [
+      {
+        name: 'My Repo',
+      },
+    ];
     const username = 'test';
     const expectedResult = update(state, {
       loading: { $set: false },
@@ -49,7 +47,9 @@ describe('appReducer', () => {
       userData: { repositories: { $set: fixture } },
     });
 
-    expect(appReducer(state, reposLoaded(fixture, username))).toEqual(expectedResult);
+    expect(appReducer(state, reposLoaded(fixture, username))).toEqual(
+      expectedResult,
+    );
   });
 
   it('should handle the repoLoadingError action correctly', () => {
@@ -58,6 +58,8 @@ describe('appReducer', () => {
     };
     const expectedResult = { ...state, error: fixture, loading: false };
 
-    expect(appReducer(state, repoLoadingError(fixture))).toEqual(expectedResult);
+    expect(appReducer(state, repoLoadingError(fixture))).toEqual(
+      expectedResult,
+    );
   });
 });

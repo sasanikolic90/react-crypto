@@ -29,11 +29,11 @@ const AppWrapper = styled.div`
 export default function App() {
   return (
     <AppWrapper>
-      <Helmet
-        titleTemplate="%s - Crypto compare"
-        defaultTitle="Crypto compare"
-      >
-        <meta name="description" content="A React.js app that compares cryptos" />
+      <Helmet titleTemplate="%s - Crypto compare" defaultTitle="Crypto compare">
+        <meta
+          name="description"
+          content="A React.js app that compares cryptos"
+        />
       </Helmet>
       <Header />
       <Switch>

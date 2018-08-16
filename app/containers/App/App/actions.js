@@ -21,7 +21,7 @@ import {
   LOAD_REPOS_ERROR,
   SAVE_USER_ANSWERS,
   FINAL_SUBMIT_FORM,
-  SET_COINS
+  SET_COINS,
 } from './constants';
 
 /**

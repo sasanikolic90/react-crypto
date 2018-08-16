@@ -26,10 +26,7 @@ export default class FeaturePage extends React.Component {
       <div>
         <Helmet>
           <title>Feature Page</title>
-          <meta
-            name="description"
-            content="Feature page of React.js app"
-          />
+          <meta name="description" content="Feature page of React.js app" />
         </Helmet>
         <H1>
           <FormattedMessage {...messages.header} />

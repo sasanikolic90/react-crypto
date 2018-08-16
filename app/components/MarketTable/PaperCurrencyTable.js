@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { setCoins } from '../../containers/App/actions';
 import { Button, Row, Col, Select, Table } from 'antd';
-import axios from 'axios'
+import axios from 'axios';
+
+import './index.css';
 const Option = Select.Option;
 
 function handleChange(value) {
@@ -19,11 +21,9 @@ function handleFocus() {
   // console.log('focus');
 }
 
-import './index.css'
-
 export class PaperCurrencyTable extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       data: [],
       page: 0,
@@ -32,17 +32,21 @@ export class PaperCurrencyTable extends React.Component {
       loading: false,
       filteredInfo: null,
       sortedInfo: null,
-    }
+    };
   }
   async componentDidMount() {
     this.setState({ loading: true });
-    const tableData = []
-    const response = await axios.get(`http://data.fixer.io/api/latest?access_key=5f571e4044e2bbfb5b6289df86dbb16d`);
-    const exchangeRate = response.data.rates
-    await Promise.all(Object.keys(exchangeRate).map(async key => {
-      return tableData.push({name: key, rate: exchangeRate[key]});
-    }));
-    this.setState({ loading: false, tableData})
+    const tableData = [];
+    const response = await axios.get(
+      `http://data.fixer.io/api/latest?access_key=5f571e4044e2bbfb5b6289df86dbb16d`,
+    );
+    const exchangeRate = response.data.rates;
+    await Promise.all(
+      Object.keys(exchangeRate).map(async key =>
+        tableData.push({ name: key, rate: exchangeRate[key] }),
+      ),
+    );
+    this.setState({ loading: false, tableData });
   }
 
   handleTableChange = (pagination, filters, sorter) => {
@@ -60,7 +64,7 @@ export class PaperCurrencyTable extends React.Component {
     //   sortOrder: sorter.order,
     //   ...filters,
     // });
-  }
+  };
   // setCoins = (value) => {
   //   if(value === "0") {
   //     this.setState((prevState, props) => {
@@ -79,16 +83,14 @@ export class PaperCurrencyTable extends React.Component {
   render() {
     let { sortedInfo, filteredInfo } = this.state;
     sortedInfo = sortedInfo || {};
-    filteredInfo =
-      filteredInfo ||
-      {
-        rank: null,
-        name: null,
-        price_usd: null,
-        percent_change_24h: null,
-        market_cap_usd: null,
-      };
-    filteredInfo['24h_volume_usd: null'] = null
+    filteredInfo = filteredInfo || {
+      rank: null,
+      name: null,
+      price_usd: null,
+      percent_change_24h: null,
+      market_cap_usd: null,
+    };
+    filteredInfo['24h_volume_usd: null'] = null;
     const columns = [
       {
         title: 'Name',
@@ -104,9 +106,7 @@ export class PaperCurrencyTable extends React.Component {
         title: 'Exhange Rate',
         dataIndex: 'rate',
         key: 'rate',
-        render: (text, record, index) => (
-          `$${text}`
-        ),
+        render: (text, record, index) => `$${text}`,
         filters: [{ text: '', value: '' }, { text: '', value: '' }],
         filteredValue: filteredInfo.rate || null,
         onFilter: (value, record) => record.rate.includes(value),
@@ -117,10 +117,20 @@ export class PaperCurrencyTable extends React.Component {
 
     return (
       <Row type="flex" justify="center">
-        <Col style={{display: 'flex', textAlign: 'center', justifyContent: 'center', flexDirection: 'column'}} xs={{ span: 24, offset: 0 }} lg={{ span: 24, offset: 0 }}>
+        <Col
+          style={{
+            display: 'flex',
+            textAlign: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+          }}
+          xs={{ span: 24, offset: 0 }}
+          lg={{ span: 24, offset: 0 }}
+        >
           <h1>Paper Currency Exchange Rate</h1>
-          <Table columns={columns}
-            rowKey={record => record.registered}
+          <Table
+            columns={columns}
+            rowKey={record => record.name}
             dataSource={this.state.tableData}
             pagination={this.state.pagination}
             loading={this.state.loading}
@@ -128,19 +138,17 @@ export class PaperCurrencyTable extends React.Component {
           />
         </Col>
       </Row>
-    )
+    );
   }
 }
-const mapStateToProps = (state, ownProps) => {
-  return {
-  }
-}
+const mapStateToProps = (state, ownProps) => ({});
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    dispatch,
-    setCoins: (value) => dispatch(setCoins(value)),
-  }
-}
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  dispatch,
+  setCoins: value => dispatch(setCoins(value)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(PaperCurrencyTable)
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PaperCurrencyTable);

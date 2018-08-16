@@ -12,7 +12,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import { Row, Col, Button } from 'antd';
-import { makeGlobalState, makeFormValue, makeSelectAnswers, makeSelectQuestions, makeSelectRepos, makeSelectLoading, makeSelectError } from 'containers/App/selectors';
+import {
+  makeGlobalState,
+  makeFormValue,
+  makeSelectAnswers,
+  makeSelectQuestions,
+  makeSelectRepos,
+  makeSelectLoading,
+  makeSelectError,
+} from 'containers/App/selectors';
 import { Switch, Route } from 'react-router-dom';
 
 import injectReducer from 'utils/injectReducer';
@@ -32,14 +40,14 @@ import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
-import showResults from './showResults'
+import showResults from './showResults';
 
-export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export class HomePage extends React.PureComponent {
+  // eslint-disable-line react/prefer-stateless-function
   /**
    * when initial state username is not null, submit the form to load repos
    */
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
     return (
@@ -61,10 +69,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 
 HomePage.propTypes = {
   loading: PropTypes.bool,
-  error: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.bool,
-  ]),
+  error: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   onSubmitForm: PropTypes.func,
 };
 

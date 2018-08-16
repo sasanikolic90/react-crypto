@@ -33,7 +33,10 @@ export default function App() {
         titleTemplate="%s - Crypto compare"
         defaultTitle="React.js Crypto compare app"
       >
-        <meta name="description" content="A React.js app that compares cryptos" />
+        <meta
+          name="description"
+          content="A React.js app that compares cryptos"
+        />
       </Helmet>
       <Header />
       <Switch>

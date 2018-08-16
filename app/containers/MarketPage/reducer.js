@@ -9,9 +9,7 @@
  * case YOUR_ACTION_CONSTANT:
  *   return state.set('yourStateVariable', true);
  */
-import {
-  CHANGE_USERNAME,
-} from './constants';
+import { CHANGE_USERNAME } from './constants';
 
 // The initial state of the App
 const initialState = {
@@ -21,7 +19,6 @@ const initialState = {
 function homeReducer(state = initialState, action) {
   switch (action.type) {
     case CHANGE_USERNAME:
-
       // Delete prefixed '@' from the github username
       return { ...state, username: action.name.replace(/@/gi, '') };
     default:

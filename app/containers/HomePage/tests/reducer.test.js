@@ -1,7 +1,5 @@
 import homeReducer from '../reducer';
-import {
-  changeUsername,
-} from '../actions';
+import { changeUsername } from '../actions';
 
 describe('homeReducer', () => {
   let state;

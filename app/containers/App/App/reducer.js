@@ -29,7 +29,7 @@ const initialState = {
   userData: {
     repositories: false,
   },
-  user: {answers: []},
+  user: { answers: [] },
   questions: [],
   submitted: false,
   coinData: [],
@@ -51,15 +51,18 @@ function appReducer(state = initialState, action) {
     case LOAD_REPOS_ERROR:
       return { ...state, loading: false, error: action.error };
     case SAVE_USER_ANSWERS:
-      return { ...state,
-        user: {answers: action.answers},
+      return {
+        ...state,
+        user: { answers: action.answers },
       };
     case SET_COINS:
-      return { ...state,
+      return {
+        ...state,
         coinData: action.coinData,
       };
     case FINAL_SUBMIT_FORM:
-      return { ...state,
+      return {
+        ...state,
         submitted: true,
       };
     default:
