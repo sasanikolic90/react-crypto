@@ -12,7 +12,7 @@
 
 import { fromJS } from 'immutable';
 
-import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR } from './constants';
+import { LOAD_REPOS_SUCCESS, LOAD_REPOS, LOAD_REPOS_ERROR, SET_COINS } from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
@@ -22,6 +22,7 @@ const initialState = fromJS({
   userData: {
     repositories: false,
   },
+  coinData: [],
 });
 
 function appReducer(state = initialState, action) {
@@ -36,6 +37,8 @@ function appReducer(state = initialState, action) {
         .setIn(['userData', 'repositories'], action.repos)
         .set('loading', false)
         .set('currentUser', action.username);
+    case SET_COINS:
+      return { ...state, coinData: action.coinData };
     case LOAD_REPOS_ERROR:
       return state.set('error', action.error).set('loading', false);
     default:

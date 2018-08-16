@@ -9,6 +9,10 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
-export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
-export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
+export const LOAD_REPOS = 'react-crypto/App/LOAD_REPOS';
+export const LOAD_REPOS_SUCCESS = 'react-crypto/App/LOAD_REPOS_SUCCESS';
+export const LOAD_REPOS_ERROR = 'react-crypto/App/LOAD_REPOS_ERROR';
+export const SAVE_USER_ANSWERS = 'react-crypto/App/SAVE_USER_ANSWERS';
+export const FINAL_SUBMIT_FORM = 'react-crypto/App/FINAL_SUBMIT_FORM';
+export const SET_COINS = 'react-crypto/App/SET_COINS';
+export const DEFAULT_LOCALE = 'en';

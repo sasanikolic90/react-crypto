@@ -5,23 +5,25 @@ import A from './A';
 import Img from './Img';
 import NavBar from './NavBar';
 import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
+import Crypto from './crypto.jpg';
 import messages from './messages';
 
-/* eslint-disable react/prefer-stateless-function */
-class Header extends React.Component {
+class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (
-      <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
+      <div style={{textAlign: 'center', margin: '0 auto' }}>
+        <A href="https://www.sasanikolic.com">
+          <Img src={Crypto} alt="Compare cryptocurrencies with react" />
+        </A>
+        <A style={{fontSize: '35px'}} href="/">
+          Paper Currency Exchange Rate, Crypto Coin Market Table, Liquid Chart
         </A>
         <NavBar>
           <HeaderLink to="/">
             <FormattedMessage {...messages.home} />
           </HeaderLink>
-          <HeaderLink to="/features">
-            <FormattedMessage {...messages.features} />
+          <HeaderLink to="/liquidity">
+            Liquidity
           </HeaderLink>
         </NavBar>
       </div>

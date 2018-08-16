@@ -15,7 +15,7 @@
  *    }
  */
 
-import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR } from './constants';
+import { LOAD_REPOS, LOAD_REPOS_SUCCESS, LOAD_REPOS_ERROR, SET_COINS } from './constants';
 
 /**
  * Load the repositories, this action starts the request saga
@@ -41,6 +41,13 @@ export function reposLoaded(repos, username) {
     type: LOAD_REPOS_SUCCESS,
     repos,
     username,
+  };
+}
+
+export function setCoins(coinData) {
+  return {
+    type: SET_COINS,
+    coinData,
   };
 }
 
