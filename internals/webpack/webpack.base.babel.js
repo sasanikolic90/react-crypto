@@ -33,13 +33,13 @@ module.exports = options => ({
           query: {
             plugins: [
               [
-                "import",
+                'import',
                 {
-                  "libraryName": "antd",
-                  "libraryDirectory": "es",
-                  "style": "css"
-                }
-              ]
+                  libraryName: 'antd',
+                  libraryDirectory: 'es',
+                  style: 'css',
+                },
+              ],
             ],
           },
         },
