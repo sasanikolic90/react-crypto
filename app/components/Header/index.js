@@ -23,7 +23,9 @@ class Header extends React.Component {
           <HeaderLink to="/">
             <FormattedMessage {...messages.home} />
           </HeaderLink>
-          <HeaderLink to="/liquidity">Liquidity</HeaderLink>
+          <HeaderLink to="/liquidity">
+            <FormattedMessage {...messages.liquidity} />
+          </HeaderLink>
         </NavBar>
       </div>
     );

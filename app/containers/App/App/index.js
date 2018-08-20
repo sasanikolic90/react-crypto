@@ -12,10 +12,9 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
-import FeaturePage from 'containers/FeaturePage/Loadable';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
+import LiquidityChart from 'components/LiquidityChart';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -41,8 +40,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
-        <Route path="" component={NotFoundPage} />
+        <Route path="/liquidity" component={LiquidityChart} />
       </Switch>
       <Footer />
     </AppWrapper>

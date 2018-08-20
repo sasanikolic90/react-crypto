@@ -9,10 +9,5 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
-export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
-export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
-export const SAVE_USER_ANSWERS = 'boilerplate/App/SAVE_USER_ANSWERS';
-export const FINAL_SUBMIT_FORM = 'boilerplate/App/FINAL_SUBMIT_FORM';
 export const SET_COINS = 'boilerplate/App/SET_COINS';
 export const DEFAULT_LOCALE = 'en';

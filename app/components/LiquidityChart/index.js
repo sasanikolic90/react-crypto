@@ -1,10 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
-import { finalSubmitForm } from '../../containers/App/actions';
-import { Button, Row, Col, Select, Table } from 'antd';
-import axios from 'axios';
+import { Row, Col, Select } from 'antd';
 import {
   XYPlot,
   XAxis,
@@ -38,11 +35,11 @@ export class LiquidityChart extends React.Component {
     this.state = {
       value: null,
       chartData: [],
-      coinData: [],
     };
     this._rememberValue = this._rememberValue.bind(this);
     this._forgetValue = this._forgetValue.bind(this);
   }
+
   componentDidMount() {
     const chartData = this.props.coinData.reduce(
       (accumulator, currentValue, currentIndex, array) => {

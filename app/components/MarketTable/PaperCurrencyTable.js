@@ -57,28 +57,28 @@ export class PaperCurrencyTable extends React.Component {
       sortedInfo: sorter,
       pagination: pager,
     });
-    // this.fetch({
-    //   results: pagination.pageSize,
-    //   page: pagination.current,
-    //   sortField: sorter.field,
-    //   sortOrder: sorter.order,
-    //   ...filters,
-    // });
+    this.fetch({
+      results: pagination.pageSize,
+      page: pagination.current,
+      sortField: sorter.field,
+      sortOrder: sorter.order,
+      ...filters,
+    });
   };
-  // setCoins = (value) => {
-  //   if(value === "0") {
-  //     this.setState((prevState, props) => {
-  //       return {numberOfTopCoins: 0}
-  //     });
-  //     this.fetch()
-  //   }
-  //   else {
-  //     this.setState((prevState, props) => {
-  //       this.props.setCoins(prevState.defaultData.slice(0, Number(value)))
-  //       return { data: prevState.defaultData.slice(0, Number(value)) }
-  //     });
-  //   }
-  // }
+  setCoins = (value) => {
+    if(value === "0") {
+      this.setState((prevState, props) => {
+        return {numberOfTopCoins: 0}
+      });
+      this.fetch()
+    }
+    else {
+      this.setState((prevState, props) => {
+        this.props.setCoins(prevState.defaultData.slice(0, Number(value)))
+        return { data: prevState.defaultData.slice(0, Number(value)) }
+      });
+    }
+  }
 
   render() {
     let { sortedInfo, filteredInfo } = this.state;
